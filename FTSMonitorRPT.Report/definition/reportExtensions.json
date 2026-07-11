@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtension/1.0.0/schema.json",
+  "name": "extension",
+  "entities": [
+    {
+      "name": "ftsm_tenant_settings",
+      "measures": [
+        {
+          "name": "tenantSettingStatus",
+          "dataType": "Double",
+          "expression": "\nVAR raw = SELECTEDVALUE('ftsm_tenant_settings'[enabled])\nVAR txt = LOWER(TRIM(FORMAT(raw, \"\")))\nRETURN\nSWITCH(\n    TRUE(),\n    ISBLANK(raw), BLANK(),\n    txt = \"true\" || txt = \"1\", \"True\",\n    txt = \"false\" || txt = \"0\", \"False\",\n    txt\n)"
+        },
+        {
+          "name": "tenantSettingStatus_Flag",
+          "dataType": "Double",
+          "expression": "\nSWITCH(\n    [tenantSettingStatus],\n    \"True\", 1,\n    \"False\", 0,\n    BLANK()\n)",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "ftsm_tenant_settings",
+                "name": "tenantSettingStatus"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_ftsm_tenant_settings",
+    "description": "The nb_ftsm_tenant_settings notebook is used to extract tenant settings, capacities, and delegated capacity settings."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "51beb890-dcfb-9754-47e7-57de5d899d4b"
+  }
+}

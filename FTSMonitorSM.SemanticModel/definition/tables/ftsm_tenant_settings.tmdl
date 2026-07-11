@@ -1,0 +1,108 @@
+table ftsm_tenant_settings
+	lineageTag: d4bad7dc-0a19-47d2-b86f-f2655da748c6
+	sourceLineageTag: [dbo].[ftsm_tenant_settings]
+
+	column tenantSettingGroup
+		dataType: string
+		lineageTag: ae4a3ffa-089f-42b7-a98a-5df14b589a24
+		sourceLineageTag: tenantSettingGroup
+		summarizeBy: none
+		sourceColumn: tenantSettingGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: a13142e5-9e32-4e45-8384-163e77797456
+		sourceLineageTag: title
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column settingName
+		dataType: string
+		lineageTag: 795a6800-f869-4e08-be3b-942a1ba85ad9
+		sourceLineageTag: settingName
+		summarizeBy: none
+		sourceColumn: settingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column enabled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a0db52c2-96ec-422d-ac33-314c9aaacd42
+		sourceLineageTag: enabled
+		summarizeBy: none
+		sourceColumn: enabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column canSpecifySecurityGroups
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6d2d25b4-10ae-4114-9452-79fef0b841d4
+		sourceLineageTag: canSpecifySecurityGroups
+		summarizeBy: none
+		sourceColumn: canSpecifySecurityGroups
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegateToWorkspace
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e2b4bf30-e1b5-43b8-8600-87f0c500ddc7
+		sourceLineageTag: delegateToWorkspace
+		summarizeBy: none
+		sourceColumn: delegateToWorkspace
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegateToDomain
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e12bb99a-8bfb-46fa-8a59-e0051e2a19e0
+		sourceLineageTag: delegateToDomain
+		summarizeBy: none
+		sourceColumn: delegateToDomain
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegateToCapacity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8b307030-4d5a-4d4b-98b7-f82a5522e9c2
+		sourceLineageTag: delegateToCapacity
+		summarizeBy: none
+		sourceColumn: delegateToCapacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotTimestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3aabb358-38b6-44a8-912e-dc30c6605b9b
+		sourceLineageTag: snapshotTimestamp
+		summarizeBy: none
+		sourceColumn: snapshotTimestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bc3707a8-c7c1-4c12-afae-e04bd9594213
+		sourceLineageTag: snapshotDate
+		summarizeBy: none
+		sourceColumn: snapshotDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ftsm_tenant_settings = entity
+		mode: directLake
+		source
+			entityName: ftsm_tenant_settings
+			schemaName: dbo
+			expressionSource: 'DirectLake - FTSMonitorLH'
+

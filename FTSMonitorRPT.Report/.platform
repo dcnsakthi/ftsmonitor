@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "FTSMonitorRPT"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5e3911d4-60e7-8106-4cd1-ce9d41551035"
+  }
+}

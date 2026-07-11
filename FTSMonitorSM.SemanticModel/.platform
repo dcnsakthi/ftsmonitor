@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "FTSMonitorSM"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c6d4456b-5b53-af74-4b0c-857928bf3b39"
+  }
+}
