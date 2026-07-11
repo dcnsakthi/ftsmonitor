@@ -1,0 +1,76 @@
+table ftsm_fabric_capacities
+	lineageTag: 1b3c47b6-1d26-48b0-afea-ebcec07c6ba1
+	sourceLineageTag: [dbo].[ftsm_fabric_capacities]
+
+	column capacityId
+		dataType: string
+		lineageTag: 24bceb2c-f955-4975-bd01-70685b7ddaa1
+		sourceLineageTag: capacityId
+		summarizeBy: none
+		sourceColumn: capacityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityName
+		dataType: string
+		lineageTag: 4f34c390-e060-46cf-9fe6-f852855699f1
+		sourceLineageTag: capacityName
+		summarizeBy: none
+		sourceColumn: capacityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityRegion
+		dataType: string
+		lineageTag: f5a927b2-5f26-489e-a0d3-01a2916cf518
+		sourceLineageTag: capacityRegion
+		summarizeBy: none
+		sourceColumn: capacityRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacitySku
+		dataType: string
+		lineageTag: e52134f9-8c0b-4c21-9565-e4ead42a936d
+		sourceLineageTag: capacitySku
+		summarizeBy: none
+		sourceColumn: capacitySku
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacityState
+		dataType: string
+		lineageTag: 57be2bc7-830b-433b-b137-82f8d205442f
+		sourceLineageTag: capacityState
+		summarizeBy: none
+		sourceColumn: capacityState
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotTimestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5e138504-d092-4e4c-9918-9592bb7d9ac8
+		sourceLineageTag: snapshotTimestamp
+		summarizeBy: none
+		sourceColumn: snapshotTimestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f71f8007-5a55-49bd-bf00-6813342e2d1d
+		sourceLineageTag: snapshotDate
+		summarizeBy: none
+		sourceColumn: snapshotDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ftsm_fabric_capacities = entity
+		mode: directLake
+		source
+			entityName: ftsm_fabric_capacities
+			schemaName: dbo
+			expressionSource: 'DirectLake - FTSMonitorLH'
+

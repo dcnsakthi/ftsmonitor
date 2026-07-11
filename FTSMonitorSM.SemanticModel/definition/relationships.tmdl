@@ -1,0 +1,4 @@
+relationship 848f205a-13c5-5e7d-9d43-9d64562d2326
+	fromColumn: ftsm_fabric_capacities.capacityId
+	toColumn: ftsm_capacity_settings.capacityId
+

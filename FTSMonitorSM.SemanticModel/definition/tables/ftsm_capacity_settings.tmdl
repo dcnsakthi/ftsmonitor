@@ -1,0 +1,125 @@
+table ftsm_capacity_settings
+	lineageTag: 9efb344c-7b64-4dda-825f-ba954765b408
+	sourceLineageTag: [dbo].[ftsm_capacity_settings]
+
+	column capacityId
+		dataType: string
+		lineageTag: b1b4fd7d-8e17-4da9-ad73-a48834268bc2
+		sourceLineageTag: capacityId
+		summarizeBy: none
+		sourceColumn: capacityId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenantSettingGroup
+		dataType: string
+		lineageTag: 24a6db4e-0032-4166-bac9-729ec03fc7b0
+		sourceLineageTag: tenantSettingGroup
+		summarizeBy: none
+		sourceColumn: tenantSettingGroup
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegatedFrom
+		dataType: string
+		lineageTag: 662e64f9-b43a-416a-8c41-0f84c57250f8
+		sourceLineageTag: delegatedFrom
+		summarizeBy: none
+		sourceColumn: delegatedFrom
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column settingName
+		dataType: string
+		lineageTag: fd313532-e42d-452c-a311-f50792590594
+		sourceLineageTag: settingName
+		summarizeBy: none
+		sourceColumn: settingName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 1729128d-daff-4bd2-8c77-2ed755f527e9
+		sourceLineageTag: title
+		summarizeBy: none
+		sourceColumn: title
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column enabled
+		dataType: string
+		lineageTag: 76b30b46-a898-4e65-aa04-b928771e17f2
+		sourceLineageTag: enabled
+		summarizeBy: none
+		sourceColumn: enabled
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column canSpecifySecurityGroups
+		dataType: string
+		lineageTag: 01a568ad-b98d-4d0a-8364-792fcd15d849
+		sourceLineageTag: canSpecifySecurityGroups
+		summarizeBy: none
+		sourceColumn: canSpecifySecurityGroups
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column enabledSecurityGroups
+		dataType: string
+		lineageTag: 59f3d965-0332-4eac-8cca-fd498abca1a7
+		sourceLineageTag: enabledSecurityGroups
+		summarizeBy: none
+		sourceColumn: enabledSecurityGroups
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotTimestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f4f0924b-56cf-496f-8500-f5b3ed925c1e
+		sourceLineageTag: snapshotTimestamp
+		summarizeBy: none
+		sourceColumn: snapshotTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 04a4c4a9-bf3c-4629-b0a2-6903b17a2a67
+		sourceLineageTag: snapshotDate
+		summarizeBy: none
+		sourceColumn: snapshotDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ftsm_capacity_settings = entity
+		mode: directLake
+		source
+			entityName: ftsm_capacity_settings
+			schemaName: dbo
+			expressionSource: 'DirectLake - FTSMonitorLH'
+
+	changedProperty = IsHidden
+

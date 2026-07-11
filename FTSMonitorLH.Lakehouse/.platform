@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "FTSMonitorLH"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a99eb0ea-c841-a336-4e5b-41f87f763996"
+  }
+}

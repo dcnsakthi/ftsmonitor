@@ -1,0 +1,9 @@
+expression 'DirectLake - FTSMonitorLH' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/35864231-8b2c-4dff-b77f-cec3caf0d231/7f763996-41f8-4e5b-a336-c841a99eb0ea", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 35a9aa3f-74d9-47cc-bdd3-b270b9736de3
+
+	annotation PBI_IncludeFutureArtifacts = False
+
