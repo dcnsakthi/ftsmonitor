@@ -192,11 +192,17 @@ def get_tenantSettings():
         return df_tenantsettings
 
     except FabricHTTPException as e:
-        print(f"Only tenant admins can use this function: {e}")
+        print(
+            "WARNING: Unable to retrieve tenant settings from v1/admin/tenantsettings. "
+            "This API requires the executing identity to hold the Fabric Administrator role "
+            "(or equivalent tenant admin API access). Continuing without failing the run; "
+            "no rows will be written to ftsm_tenant_settings for this snapshot.\n"
+            f"Details: {e}"
+        )
         return spark.createDataFrame([], schema)
 
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        print(f"WARNING: Unexpected error retrieving tenant settings: {e}")
         return spark.createDataFrame([], schema)
 
 
@@ -279,7 +285,13 @@ def get_capacities():
         return df_capacities
 
     except Exception as e:
-        print(f"Error retrieving capacities: {e}")
+        print(
+            "WARNING: Unable to retrieve capacities via fabric.list_capacities(). "
+            "Ensure the executing identity has Capacity Contributor/Admin rights on the "
+            "relevant capacities (or Fabric Administrator for a full tenant-wide list). "
+            "Continuing without failing the run; no rows will be written to "
+            f"ftsm_fabric_capacities for this snapshot.\nDetails: {e}"
+        )
         return spark.createDataFrame([], schema)
 
 
@@ -370,8 +382,13 @@ def get_delegatedTenantSettings():
         df_raw = spark.createDataFrame(rows, schema=raw_schema)
         return flatten_delegated(df_raw)
     except FabricHTTPException as e:
-        print("Could not retrieve delegated tenant settings (tenant admin rights required).")
-        print(str(e))
+        print(
+            "WARNING: Unable to retrieve delegated tenant setting overrides from "
+            "v1/admin/capacities/delegatedTenantSettingOverrides. This API requires the "
+            "Fabric Administrator role (or equivalent tenant admin API access). Continuing "
+            "without failing the run; no rows will be written to ftsm_capacity_settings "
+            f"for this snapshot.\nDetails: {e}"
+        )
         empty_raw = spark.createDataFrame([], schema=raw_schema)
         return flatten_delegated(empty_raw)
 
