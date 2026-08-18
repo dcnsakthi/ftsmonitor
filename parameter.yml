@@ -1,0 +1,23 @@
+# fabric-cicd parameter file
+# https://microsoft.github.io/fabric-cicd/latest/how_to/parameterization/
+#
+# This solution's Semantic Model (FTSMonitorSM) uses a Direct Lake connection that embeds the
+# authoring workspace ID and FTSMonitorLH Lakehouse ID directly in expressions.tmdl. Without this
+# file, every deployment to a new workspace would keep querying the original dev Lakehouse instead
+# of the Lakehouse deployed alongside it. The _ALL_ key applies regardless of the `environment`
+# value passed to FabricWorkspace (this repo does not use named environments like PPE/PROD).
+
+find_replace:
+  # Dev workspace ID embedded in the DirectLake OneLake path -> target deployment workspace ID
+  - find_value: "35864231-8b2c-4dff-b77f-cec3caf0d231"
+    replace_value:
+      _ALL_: "$workspace.$id"
+    item_type: "SemanticModel"
+    item_name: "FTSMonitorSM"
+
+  # Dev FTSMonitorLH Lakehouse ID embedded in the DirectLake OneLake path -> deployed Lakehouse ID
+  - find_value: "7f763996-41f8-4e5b-a336-c841a99eb0ea"
+    replace_value:
+      _ALL_: "$items.Lakehouse.FTSMonitorLH.$id"
+    item_type: "SemanticModel"
+    item_name: "FTSMonitorSM"
